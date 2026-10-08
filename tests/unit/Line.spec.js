@@ -100,9 +100,19 @@ describe('Line', function () {
 	});
 
 	describe('getAscenderHeight', function () {
+		it('should return the biggest ascender of the inlines', function () {
+			var line = new Line(100);
+			line.addInline({ width: 10, fontSize: 10, font: { ascender: 900 } });
+			line.addInline({ width: 10, fontSize: 20, font: { ascender: 900 } });
+			assert.equal(line.getAscenderHeight(), 18);
+		});
 
-		// TODO
-
+		it('should use the baseline of the inline when it is defined (lineHeightMode css)', function () {
+			var line = new Line(100);
+			line.addInline({ width: 10, fontSize: 10, font: { ascender: 900 }, baseline: 11.5 });
+			line.addInline({ width: 10, fontSize: 10, font: { ascender: 900 } });
+			assert.equal(line.getAscenderHeight(), 11.5);
+		});
 	});
 
 	describe('getWidth', function () {

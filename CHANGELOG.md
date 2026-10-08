@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Added the style property `lineHeightMode`. With `lineHeightMode: 'css'` (and an explicit `lineHeight`), the height of a line is `fontSize * lineHeight` and the height of the font is centered in the line box (half-leading), as in CSS. The default (`'legacy'`) is unchanged: `lineHeight` multiplies the height of the font. List markers, text decorations and text backgrounds follow the new baseline.
+
 ## 0.3.11 - 2026-06-12
 
 - Updated pdfkit to 0.19.1 (fixed RGB JPEG embedded as DeviceGray, bug introduced in 0.19.0)
